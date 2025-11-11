@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frost & Flare — Winter Wear Store</title>
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" href="assets/images/beanie.svg">
+</head>
+<body>
+<header class="header">
+  <div class="container header-row">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 6v8l-8 6-8-6V8l8-6zM6 9.5l6 4.5 6-4.5" /></svg>
+      <span>Frost & Flare</span>
+    </div>
+    <nav class="nav">
+      <div class="nav-item has-mega">Men
+        <div class="mega">
+          <div class="mega-col">
+            <a data-filter="men,upper">Jackets</a>
+            <a data-filter="men,upper">Hoodies</a>
+            <a data-filter="men,upper">Sweaters</a>
+          </div>
+          <div class="mega-col">
+            <a data-filter="men,lower">Thermals</a>
+            <a data-filter="men,lower">Track Pants</a>
+            <a data-filter="men,lower">Socks</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item has-mega">Women
+        <div class="mega">
+          <div class="mega-col">
+            <a data-filter="women,upper">Coats</a>
+            <a data-filter="women,upper">Sweaters</a>
+            <a data-filter="women,upper">Hoodies</a>
+          </div>
+          <div class="mega-col">
+            <a data-filter="women,lower">Thermals</a>
+            <a data-filter="women,lower">Leggings</a>
+            <a data-filter="women,lower">Socks</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">Kids</div>
+      <div class="nav-item">Upper Wear</div>
+      <div class="nav-item">Lower Wear</div>
+      <div class="nav-item">Accessories</div>
+      <div class="nav-item highlight">Winter Deals</div>
+    </nav>
+    <div class="actions">
+      <button id="searchToggle" aria-label="Search">
+        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 14 15.5l.3.3v.8L20 22l2-2-6.5-6zM10 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></svg>
+      </button>
+      <button id="themeToggle" aria-label="Theme">
+        <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0 0 18 9 9 0 0 0 0-18z"/></svg>
+      </button>
+      <button id="cartToggle" class="cart-btn" aria-label="Cart">
+        <svg viewBox="0 0 24 24"><path d="M7 4h-2l-1 2v2h2l3.6 7.6-1.35 2.4A1 1 0 0 0 9 20h10v-2H9.42l.75-1.33H18a1 1 0 0 0 .9-.55L22 9H6.42"/></svg>
+        <span id="cartCount">0</span>
+      </button>
+      <button id="menuToggle" class="menu-btn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="searchbar container" id="searchbar">
+    <input id="searchInput" type="search" placeholder="Search winter wear">
+    <select id="sortSelect">
+      <option value="featured">Sort: Featured</option>
+      <option value="price-asc">Price: Low to High</option>
+      <option value="price-desc">Price: High to Low</option>
+      <option value="rating-desc">Rating</option>
+    </select>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="carousel" id="carousel">
+    <div class="slides">
+      <div class="slide"><img src="assets/images/hero1.jpg" alt="Hero 1"><div class="slide-content"><h1>Cozy Starts Now</h1><p>Layer up with premium knits and puffers from ₹999.</p><a href="#shop" class="btn">Shop Winter</a></div></div>
+      <div class="slide"><img src="assets/images/hero2.jpg" alt="Hero 2"><div class="slide-content"><h1>Himalayan-Ready</h1><p>Cold-tested parkas and thermals. Free shipping in India.</p><a href="#shop" class="btn">Explore Parkas</a></div></div>
+      <div class="slide"><img src="assets/images/hero3.jpg" alt="Hero 3"><div class="slide-content"><h1>Style Meets Warmth</h1><p>Minimal silhouettes, maximum heat.</p><a href="#shop" class="btn">New Arrivals</a></div></div>
+    </div>
+    <button class="carousel-nav prev" id="prevSlide">&#10094;</button>
+    <button class="carousel-nav next" id="nextSlide">&#10095;</button>
+    <div class="dots" id="carouselDots"></div>
+  </div>
+</section>
+
+<main class="container layout">
+  <aside class="filters" id="filters">
+    <h3>Filters</h3>
+    <details open>
+      <summary>Gender</summary>
+      <label><input type="checkbox" name="gender" value="men"> Men</label>
+      <label><input type="checkbox" name="gender" value="women"> Women</label>
+      <label><input type="checkbox" name="gender" value="kids"> Kids</label>
+    </details>
+    <details open>
+      <summary>Category</summary>
+      <label><input type="checkbox" name="category" value="upper"> Upper Wear</label>
+      <label><input type="checkbox" name="category" value="lower"> Lower Wear</label>
+      <label><input type="checkbox" name="category" value="accessories"> Accessories</label>
+    </details>
+    <details open>
+      <summary>Price</summary>
+      <input type="range" id="priceRange" min="499" max="9999" value="9999">
+      <div class="range-meta"><span>₹499</span><span id="priceMax">₹9,999</span></div>
+    </details>
+    <details>
+      <summary>Rating</summary>
+      <label><input type="radio" name="rating" value="4"> 4★ & up</label>
+      <label><input type="radio" name="rating" value="3"> 3★ & up</label>
+      <label><input type="radio" name="rating" value=""> Any</label>
+    </details>
+    <button class="btn outline" id="clearFilters">Clear Filters</button>
+  </aside>
+
+  <section class="products">
+    <div class="section-head">
+      <h2 id="shop">Shop Winter</h2>
+      <div class="badges">
+        <span class="badge">Men</span>
+        <span class="badge">Women</span>
+        <span class="badge">Upper</span>
+        <span class="badge">Lower</span>
+        <span class="badge">Accessories</span>
+      </div>
+    </div>
+    <div id="productGrid" class="grid"></div>
+  </section>
+</main>
+
+<section class="band container">
+  <div class="band-item">
+    <h3>Free Shipping</h3>
+    <p>Across India for orders above ₹799</p>
+  </div>
+  <div class="band-item">
+    <h3>7-Day Returns</h3>
+    <p>Easy, no-questions returns</p>
+  </div>
+  <div class="band-item">
+    <h3>Secure Payments</h3>
+    <p>UPI, Cards, Netbanking</p>
+  </div>
+</section>
+
+<section class="testimonials container">
+  <h2>What People Say</h2>
+  <div class="grid grid-3">
+    <blockquote>Super warm without the bulk. Perfect for Shimla! <span>— Aisha</span></blockquote>
+    <blockquote>Quality feels premium, worth every rupee. <span>— Rohan</span></blockquote>
+    <blockquote>Love the minimalist look and fit. <span>— Meera</span></blockquote>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="container news-row">
+    <div>
+      <h3>Stay Warm, Stay Updated</h3>
+      <p>Get deals in your inbox. We never spam.</p>
+    </div>
+    <form id="newsletterForm">
+      <input type="email" id="newsletterEmail" placeholder="your@email.com" required>
+      <button class="btn">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="brand mini">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 6v8l-8 6-8-6V8l8-6zM6 9.5l6 4.5 6-4.5" /></svg>
+        <span>Frost & Flare</span>
+      </div>
+      <p>Premium winter wear for India.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <a>Men</a><a>Women</a><a>Kids</a><a>Accessories</a>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <a>Contact</a><a>Returns</a><a>Shipping</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a>Privacy</a><a>Terms</a>
+    </div>
+  </div>
+  <div class="container copy">© <span id="year"></span> Frost & Flare · Built for demo</div>
+</footer>
+
+<div class="cart" id="cart">
+  <div class="cart-head">
+    <h3>Your Cart</h3>
+    <button id="closeCart" aria-label="Close">×</button>
+  </div>
+  <div id="cartItems" class="cart-items"></div>
+  <div class="cart-foot">
+    <div class="line"><span>Subtotal</span><span id="cartSubtotal">₹0</span></div>
+    <div class="line"><span>Shipping</span><span id="cartShipping">₹0</span></div>
+    <div class="line total"><span>Total</span><span id="cartTotal">₹0</span></div>
+    <button class="btn checkout">Checkout</button>
+  </div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose">×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
